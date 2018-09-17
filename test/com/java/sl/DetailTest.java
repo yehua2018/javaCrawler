@@ -1,27 +1,24 @@
-package java.com.java.sl;
+package test.com.java.sl; 
 
-import junit.framework.Test; 
-import junit.framework.TestSuite; 
-import junit.framework.TestCase; 
+import org.junit.Test; 
+import org.junit.Before; 
+import org.junit.After; 
 
 /** 
 * Detail Tester. 
 * 
 * @author <Authors name> 
-* @since <pre>09/17/2018</pre> 
+* @since <pre>九月 17, 2018</pre> 
 * @version 1.0 
 */ 
-public class DetailTest extends TestCase { 
-public DetailTest(String name) { 
-super(name); 
+public class DetailTest { 
+
+@Before
+public void before() throws Exception { 
 } 
 
-public void setUp() throws Exception { 
-super.setUp(); 
-} 
-
-public void tearDown() throws Exception { 
-super.tearDown(); 
+@After
+public void after() throws Exception { 
 } 
 
 /** 
@@ -29,6 +26,7 @@ super.tearDown();
 * Method: ershoufang(String html) 
 * 
 */ 
+@Test
 public void testErshoufangHtml() throws Exception { 
 //TODO: Test goes here... 
 } 
@@ -38,6 +36,7 @@ public void testErshoufangHtml() throws Exception {
 * Method: ershoufang(URL url) 
 * 
 */ 
+@Test
 public void testErshoufangUrl() throws Exception { 
 //TODO: Test goes here... 
 } 
@@ -47,13 +46,10 @@ public void testErshoufangUrl() throws Exception {
 * Method: zufang(String html) 
 * 
 */ 
+@Test
 public void testZufang() throws Exception { 
 //TODO: Test goes here... 
 } 
 
 
-
-public static Test suite() { 
-return new TestSuite(DetailTest.class); 
-} 
 } 
