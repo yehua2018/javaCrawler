@@ -1,4 +1,4 @@
-package test.com.java.sl; 
+package com.java.sl;
 
 import org.junit.Test; 
 import org.junit.Before; 
