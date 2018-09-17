@@ -3,21 +3,29 @@ package com.java.sl;
 import java.sql.*;
 
 public class SqlDB {
-    static final String DRIVER = "com.mysql.jdbc.Driver";
-    String host = "jdbc:mysql://localhost:3306/studb";
-    String username = "root";
-    String password = "";
-    Connection conn;
-
-
+    //数据库用户名
+    private static final String USERNAME = "root";
+    //数据库密码
+    private static final String PASSWORD = "ttdsj84261@";
+    //驱动信息
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    //数据库地址
+    private static final String HOST = "jdbc:mysql://localhost:3306/DemoTest";
+    private Connection conn=null;
+    //private PreparedStatement pstmt;
+    public SqlDB() {
+        try{
+            Class.forName(DRIVER);
+            conn = DriverManager.getConnection(HOST, USERNAME, PASSWORD);
+            System.out.println("数据库连接成功！");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public Connection getConn(){
         try {
-            Class.forName(DRIVER);
-            conn = DriverManager.getConnection(host, username, password);
-        }catch(ClassNotFoundException e) {
-            //数据库驱动类异常处理
-            System.out.println("Sorry,can`t find the Driver!");
-            e.printStackTrace();
+            conn = DriverManager.getConnection(HOST, USERNAME, PASSWORD);
+            System.out.println("Successfully.");
         }catch(SQLException e) {
             //数据库连接失败异常处理
             e.printStackTrace();
