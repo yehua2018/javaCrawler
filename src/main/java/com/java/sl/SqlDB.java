@@ -9,7 +9,7 @@ public class SqlDB {
     private static final String PASSWORD = "147258";
     //驱动信息
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    //数据库地址j
+    //数据库地址
     private static final String HOST = "jdbc:mysql://localhost:3306/mysql_test?useSSL = false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
     private Connection conn=null;
     //private PreparedStatement pstmt;
