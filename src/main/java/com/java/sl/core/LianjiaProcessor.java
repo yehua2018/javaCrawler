@@ -47,7 +47,7 @@ public class LianjiaProcessor implements PageProcessor{
         else{
             size ++;
             PageParser pageParser = new PageParser();
-            HouseData houseData = pageParser.process(page, houseType);
+            Ershoufang houseData = pageParser.process(page, houseType);
 
             new HouseDao().add(houseData, houseType); // 保存到数据库
 //            System.out.println(houseData);

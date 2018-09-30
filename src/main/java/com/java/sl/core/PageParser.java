@@ -17,8 +17,8 @@ import java.util.Map;
  */
 public class PageParser {
 
-    public HouseData process(Page page, String houseType){
-        HouseData houseData = new HouseData();
+    public Ershoufang process(Page page, String houseType){
+        Ershoufang houseData = new Ershoufang();
         dealEr(page);
         return houseData;
     }
