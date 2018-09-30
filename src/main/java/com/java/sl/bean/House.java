@@ -8,16 +8,24 @@ package com.java.sl.bean;
  */
 public class House {
     //基本属性
+    private String title; //标题
     private String houseType;//户型
     private String area;//面积
-    private String houseOrientation;//朝向
-    private String storeyHeight;//楼层高
+    private String towards;//朝向
+    private String floor;//楼层高
     private String fitment;//装修情况
-    private String plot;//小区
+    private String community;//小区
     private String location;//地址
-    private String sale;//售价
-    private String heatingMethod;//供暖方式
+    private String price;//售价
+
+    //构建方法
+    public House(){
+
+    }
+
     //get、set方法
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
     public void setHouseType(String houseType) {
         this.houseType = houseType;
     }
@@ -30,23 +38,23 @@ public class House {
     public String getArea() {
         return this.area;
     }
-    public void setHouseOrientation(String houseOrientation) {
-        this.houseOrientation = houseOrientation;
+    public void setTowards(String towards) {
+        this.towards = towards;
     }
-    public String getHouseOrientation() {
-        return this.houseOrientation;
+    public String getTowards() {
+        return this.towards;
     }
-    public void setStoreyHeight(String storeyHeight) {
-        this.storeyHeight = storeyHeight;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
-    public String getStoreyHeight() {
-        return this.storeyHeight;
+    public String getFloor() {
+        return this.floor;
     }
-    public void setPlot(String plot) {
-        this.plot = plot;
+    public void setCommunity(String community) {
+        this.community = community;
     }
-    public String getPlot() {
-        return this.plot;
+    public String getCommunity() {
+        return this.community;
     }
     public void setLocation(String location) {
         this.location = location;
@@ -54,11 +62,11 @@ public class House {
     public String getLocation() {
         return this.location;
     }
-    public void setSale(String sale) {
-        this.sale = sale;
+    public void setPrice(String price) {
+        this.price = price;
     }
-    public String getSale() {
-        return this.sale;
+    public String getPrice() {
+        return this.price;
     }
 
     public void setFitment(String fitment) {
@@ -66,18 +74,6 @@ public class House {
     }
     public String getFitment() {
         return this.fitment;
-    }
-
-    public void setHeatingMethod(String heatingMethod) {
-        this.heatingMethod = heatingMethod;
-    }
-    public String getHeatingMethod() {
-        return this.heatingMethod;
-    }
-
-    //构建方法
-    public House(){
-
     }
 
 }

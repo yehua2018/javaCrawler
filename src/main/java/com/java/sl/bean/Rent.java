@@ -6,6 +6,6 @@ package com.java.sl.bean;
  * Email: liujiezhangbupt@gmail.com
  * Description:
  */
-public class Rent {
+public class Rent extends House{
 
 }
