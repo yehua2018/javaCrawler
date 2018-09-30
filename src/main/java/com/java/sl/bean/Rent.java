@@ -7,4 +7,5 @@ package com.java.sl.bean;
  * Description:
  */
 public class Rent {
+
 }
