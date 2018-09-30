@@ -11,7 +11,7 @@ public class Rent extends House{
 
     }
     private String rentType;//租赁方式
-    private String payTye;//付款方式
+    private String payType;//付款方式
     private String vacantOrNot;//房屋状况
 
     public String getRentType() {
@@ -22,12 +22,12 @@ public class Rent extends House{
         this.rentType = rentType;
     }
 
-    public String getPayTye() {
-        return payTye;
+    public String getPayType() {
+        return payType;
     }
 
-    public void setPayTye(String payTye) {
-        this.payTye = payTye;
+    public void setPayType(String payType) {
+        this.payType = payType;
     }
 
     public String getVacantOrNot() {

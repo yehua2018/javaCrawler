@@ -7,13 +7,20 @@ package com.java.sl.bean;
  * Description:
  */
 public class Ershoufang extends House{
+
+    public Ershoufang() {
+
+    }
+
+    // 房源基本属性信息
     private String houseStructure;//户型结构
-    private String taoNeiArea;//套内面积
+    private String inArea;//套内面积
     private String buildingType;//建筑类型
-    private String buikdingStructure;//建筑结构
-    private String ladderHouseholdProportion;//梯户比例
+    private String buildingStructure;//建筑结构
+    private String ladderHouseHoldProportion;//梯户比例
     private String ladderOrNot;//是否有电梯
     private String propertyRight;//产权年限
+    // 房源交易信息
     private String forTheTime;//挂牌时间
     private String transaction;//交易权属
     private String lastTranTime;//上次交易时间
@@ -30,12 +37,12 @@ public class Ershoufang extends House{
         this.houseStructure = houseStructure;
     }
 
-    public String getTaoNeiArea() {
-        return taoNeiArea;
+    public String getInArea() {
+        return inArea;
     }
 
-    public void setTaoNeiArea(String taoNeiArea) {
-        this.taoNeiArea = taoNeiArea;
+    public void setInArea(String inArea) {
+        this.inArea = inArea;
     }
 
     public String getBuildingType() {
@@ -46,20 +53,20 @@ public class Ershoufang extends House{
         this.buildingType = buildingType;
     }
 
-    public String getBuikdingStructure() {
-        return buikdingStructure;
+    public String getBuildingStructure() {
+        return buildingStructure;
     }
 
-    public void setBuikdingStructure(String buikdingStructure) {
-        this.buikdingStructure = buikdingStructure;
+    public void setBuildingStructure(String buildingStructure) {
+        this.buildingStructure = buildingStructure;
     }
 
-    public String getLadderHouseholdProportion() {
-        return ladderHouseholdProportion;
+    public String getLadderHouseHoldProportion() {
+        return ladderHouseHoldProportion;
     }
 
-    public void setLadderHouseholdProportion(String ladderHouseholdProportion) {
-        this.ladderHouseholdProportion = ladderHouseholdProportion;
+    public void setLadderHouseHoldProportion(String ladderHouseHoldProportion) {
+        this.ladderHouseHoldProportion = ladderHouseHoldProportion;
     }
 
     public String getLadderOrNot() {
@@ -132,9 +139,5 @@ public class Ershoufang extends House{
 
     public void setHouseReplacement(String houseReplacement) {
         this.houseReplacement = houseReplacement;
-    }
-
-    public Ershoufang() {
-
     }
 }

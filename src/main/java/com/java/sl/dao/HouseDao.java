@@ -1,5 +1,6 @@
 package com.java.sl.dao;
 
+import com.java.sl.bean.Ershoufang;
 import com.java.sl.bean.HouseData;
 
 /**
@@ -10,7 +11,7 @@ import com.java.sl.bean.HouseData;
  */
 public class HouseDao {
 
-    public void add(HouseData houseData, String houseType){
+    public void add(Ershoufang houseData, String houseType){
 
     }
 }
