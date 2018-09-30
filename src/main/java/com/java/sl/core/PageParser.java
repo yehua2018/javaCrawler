@@ -5,7 +5,9 @@ import com.java.sl.bean.Ershoufang;
 import com.java.sl.bean.HouseData;
 import us.codecraft.webmagic.Page;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Author: zhangliujie
@@ -53,10 +55,24 @@ public class PageParser {
         String location = listToString(page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[2]/span[2]/allText()").all());
         System.out.println(location);
         // 获取房屋基本属性 todo
+        Map<String, String> baseInfo = getBaseInfo(page);
 
         // 获取房屋交易属性 todo
+        Map<String, String> tradingInfo = getTradInfo(page);
 
         return houseInfo;
+    }
+
+    protected Map<String, String> getBaseInfo(Page page){
+        Map<String, String> baseInfo = new HashMap<String, String>();
+
+        return baseInfo;
+    }
+
+    protected Map<String, String> getTradInfo(Page page){
+        Map<String, String> tradingInfo = new HashMap<String, String>();
+
+        return tradingInfo;
     }
 
     // 把list转换为string，用空格分割
