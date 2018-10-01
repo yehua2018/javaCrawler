@@ -1,15 +1,12 @@
 package com.java.sl.core;
 
 import com.java.sl.bean.Ershoufang;
-import com.java.sl.bean.HouseData;
-import com.java.sl.dao.HouseDao;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import com.java.sl.dao.ErshoufangDao;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
-import java.awt.peer.SystemTrayPeer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,9 +52,9 @@ public class LianjiaProcessor implements PageProcessor{
 
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
+            new ErshoufangDao().add(houseData, "testDemo"); // 保存到数据库
+            System.exit(1);
 
-            new HouseDao().add(houseData, houseType); // 保存到数据库
-//            System.out.println(houseData);
         }
     }
 

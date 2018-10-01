@@ -7,7 +7,9 @@ package com.java.sl.bean;
  * Description:
  */
 public class House {
+
     //基本属性
+    private String url; // url标识
     private String title; //标题
     private String houseType;//户型
     private String area;//面积
@@ -24,6 +26,13 @@ public class House {
     }
 
     //get、set方法
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public void setHouseType(String houseType) {

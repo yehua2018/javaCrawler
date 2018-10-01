@@ -13,9 +13,9 @@ import java.util.Map;
 public class Ershoufang extends House {
 
     public Ershoufang() {
+        super();
 
     }
-
     private String room;
     private String year;
 

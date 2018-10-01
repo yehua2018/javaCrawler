@@ -18,13 +18,16 @@ import java.util.Map;
 public class PageParser {
 
     public Ershoufang process(Page page, String houseType){
-        Ershoufang houseData = new Ershoufang();
-        dealEr(page);
+        Ershoufang houseData = dealEr(page);
+
         return houseData;
     }
 
     public Ershoufang dealEr(Page page){
         Ershoufang houseInfo = new Ershoufang();
+
+        houseInfo.setUrl(page.getUrl().toString());
+
         String title = page.getHtml().xpath("/html/body/div[3]/div/div/div[1]/h1/text()").get(); // 标题
         houseInfo.setTitle(title);
 
@@ -63,7 +66,6 @@ public class PageParser {
         houseInfo.setTradInfo(tradingInfo);
 
         houseInfo.freshInfo();
-//        System.out.println(houseInfo);
 
         return houseInfo;
     }
