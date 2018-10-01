@@ -63,7 +63,7 @@ public class PageParser {
         houseInfo.setTradInfo(tradingInfo);
 
         houseInfo.freshInfo();
-        System.out.println(houseInfo);
+//        System.out.println(houseInfo);
 
         return houseInfo;
     }

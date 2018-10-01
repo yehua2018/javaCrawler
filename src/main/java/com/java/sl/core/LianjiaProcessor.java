@@ -42,7 +42,7 @@ public class LianjiaProcessor implements PageProcessor{
 
             // 下一页
             historyUrls.add(page.getUrl());
-            String curPage = page.getUrl().regex("pg\\d+/").get();
+            String curPage = page.getUrl().regex("\\d+").get();
             if(curPage == null) curPage = "1";
             int nextPage = Integer.parseInt(curPage) + 1;
             if(nextPage <= 100 && !historyUrls.contains("https://bj.lianjia.com/ershoufang/pg" + nextPage))
@@ -51,6 +51,8 @@ public class LianjiaProcessor implements PageProcessor{
         // 解析详情页详情页
         else if(!historyUrls.contains(page.getUrl())){
             size ++;
+            historyUrls.add(page.getUrl());
+
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
 
