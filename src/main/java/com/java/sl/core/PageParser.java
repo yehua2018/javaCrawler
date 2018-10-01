@@ -64,7 +64,6 @@ public class PageParser {
 
         houseInfo.freshInfo();
         System.out.println(houseInfo);
-        System.exit(1);
 
         return houseInfo;
     }

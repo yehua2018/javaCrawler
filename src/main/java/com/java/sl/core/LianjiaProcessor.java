@@ -45,7 +45,7 @@ public class LianjiaProcessor implements PageProcessor{
             String curPage = page.getUrl().regex("pg\\d+/").get();
             if(curPage == null) curPage = "1";
             int nextPage = Integer.parseInt(curPage) + 1;
-            if(nextPage <= 100)
+            if(nextPage <= 100 && !historyUrls.contains("https://bj.lianjia.com/ershoufang/pg" + nextPage))
                 page.addTargetRequest("https://bj.lianjia.com/ershoufang/pg" + nextPage);
         }
         // 解析详情页详情页
