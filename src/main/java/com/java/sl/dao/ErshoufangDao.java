@@ -21,7 +21,7 @@ public class ErshoufangDao {
         List<String> vals = new LinkedList<String>();
         for(Map.Entry<String, String> entry : itemVals.entrySet()){
             keys.add(entry.getKey());
-            vals.add(entry.getValue());
+            vals.add("'" + entry.getValue() + "'");
         }
         String key = String.join(",", keys);
         String val = String.join(",", vals);

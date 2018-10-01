@@ -23,7 +23,7 @@ public class SqlDB {
     public Connection getConn(){
         try {
             conn = DriverManager.getConnection(HOST, USERNAME,PASSWORD);
-            System.out.println("Successfully.");
+            System.out.println("Connection Successfully.");
         }catch(SQLException e) {
             //数据库连接失败异常处理
             e.printStackTrace();
@@ -34,9 +34,9 @@ public class SqlDB {
         return conn;
     }
     /*
-    执行sql的通用方法
+    查询类sql的通用方法
      */
-    public ResultSet dqlExecute(String sql){
+    public ResultSet sqlExecute(String sql){
         // 获取数据库连接
         if(conn == null){
             conn = getConn();
@@ -46,12 +46,32 @@ public class SqlDB {
         try{
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(sql);
-            conn.commit();
+            conn.close();
         }catch (SQLException e){
             e.printStackTrace();
         } catch (Exception e){
             e.printStackTrace();
         }
         return resultSet;
+    }
+
+    /*
+    执行sql的通用方法
+     */
+    public void dqlExecute(String sql){
+        // 获取数据库连接
+        if(conn == null){
+            conn = getConn();
+        }
+        // 执行sql
+        try{
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+            conn.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
