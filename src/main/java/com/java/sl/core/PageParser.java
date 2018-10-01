@@ -56,6 +56,8 @@ public class PageParser {
         System.out.println(location);
         // 获取房屋基本属性 todo
         Map<String, String> baseInfo = getBaseInfo(page);
+        System.out.println(baseInfo);
+        System.exit(1);
 
         // 获取房屋交易属性 todo
         Map<String, String> tradingInfo = getTradInfo(page);
@@ -65,7 +67,11 @@ public class PageParser {
 
     protected Map<String, String> getBaseInfo(Page page){
         Map<String, String> baseInfo = new HashMap<String, String>();
-
+        List<String> tags = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/span/text()").all();
+        List<String> vals = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/text(1)").all();
+        for(int i=0;i<tags.size();++i){
+            baseInfo.put(tags.get(i), vals.get(i));
+        }
         return baseInfo;
     }
 
