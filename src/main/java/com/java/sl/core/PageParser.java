@@ -57,18 +57,19 @@ public class PageParser {
         // 获取房屋基本属性 todo
         Map<String, String> baseInfo = getBaseInfo(page);
         System.out.println(baseInfo);
-        System.exit(1);
+        //System.exit(1);
 
         // 获取房屋交易属性 todo
         Map<String, String> tradingInfo = getTradInfo(page);
-
+        System.out.println(tradingInfo);
+        System.exit(1);
         return houseInfo;
     }
 
     protected Map<String, String> getBaseInfo(Page page){
         Map<String, String> baseInfo = new HashMap<String, String>();
         List<String> tags = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/span/text()").all();
-        List<String> vals = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/text(1)").all();
+        List<String> vals = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/text()").all();
         for(int i=0;i<tags.size();++i){
             baseInfo.put(tags.get(i), vals.get(i));
         }
@@ -77,7 +78,11 @@ public class PageParser {
 
     protected Map<String, String> getTradInfo(Page page){
         Map<String, String> tradingInfo = new HashMap<String, String>();
-
+        List<String> tags = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[2]/div[2]/ul/li/span[1]/text()").all();
+        List<String> vals = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[2]/div[2]/ul/li/span[2]/text()").all();
+        for(int i = 0; i < tags.size();i++) {
+            tradingInfo.put(tags.get(i),vals.get(i));
+        }
         return tradingInfo;
     }
 
