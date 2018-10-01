@@ -1,6 +1,7 @@
 package com.java.sl;
 
-import org.junit.Test; 
+import com.java.sl.dao.SqlDB;
+import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
