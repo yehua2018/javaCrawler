@@ -3,11 +3,13 @@ package com.java.sl.core;
 import com.java.sl.bean.Ershoufang;
 import com.java.sl.bean.HouseData;
 import com.java.sl.dao.HouseDao;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
+import java.awt.peer.SystemTrayPeer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,12 +41,15 @@ public class LianjiaProcessor implements PageProcessor{
             page.addTargetRequests(urls);
 
             // 下一页
-            List<String> nextPage = page.getHtml().xpath("//*[@id=\"leftContent\"]/div[8]/div[2]/div/a/@href").all();
-            System.out.println(nextPage);
-
+            historyUrls.add(page.getUrl());
+            String curPage = page.getUrl().regex("pg\\d+/").get();
+            if(curPage == null) curPage = "1";
+            int nextPage = Integer.parseInt(curPage) + 1;
+            if(nextPage <= 100)
+                page.addTargetRequest("https://bj.lianjia.com/ershoufang/pg" + nextPage);
         }
         // 解析详情页详情页
-        else{
+        else if(!historyUrls.contains(page.getUrl())){
             size ++;
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
