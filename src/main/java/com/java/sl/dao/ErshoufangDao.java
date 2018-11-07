@@ -12,7 +12,7 @@ import java.util.*;
  * Description:
  */
 public class ErshoufangDao {
-    private static SqlDB sqlDB = new SqlDB();
+    private SqlDB sqlDB = new SqlDB();
 
     public void add(Ershoufang ershoufang, String table){
         Map<String, String> itemVals = getObjAttr(ershoufang);
@@ -54,7 +54,9 @@ public class ErshoufangDao {
                 if(!access) field.setAccessible(true);
 
                 Object o = field.get(ershoufang);
-                keyVals.put(varName, (String)o);
+                if(!varName.equals( "baseInfo") && !varName.equals("tradInfo")){
+                    keyVals.put(varName, (String)o);
+                }
 
                 if(access) field.setAccessible(false);
 

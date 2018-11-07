@@ -24,6 +24,7 @@ public class LianjiaProcessor implements PageProcessor{
 
     // 抓取网站的相关配置，包括：编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
+    private ErshoufangDao ershoufangdao = new ErshoufangDao();
 
     public Site getSite(){
         return site;
@@ -52,8 +53,8 @@ public class LianjiaProcessor implements PageProcessor{
 
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
-            new ErshoufangDao().add(houseData, "testDemo"); // 保存到数据库
-            System.exit(1);
+            ershoufangdao.add(houseData, "ershoufang"); // 保存到数据库
+//            System.exit(1);
 
         }
     }

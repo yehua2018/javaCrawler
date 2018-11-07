@@ -20,30 +20,28 @@ public class SqlDB {
             e.printStackTrace();
         }
     }
-    public Connection getConn(){
+    public Connection getConn() throws SQLException{
+        Connection conn = null;
         try {
-            conn = DriverManager.getConnection(HOST, USERNAME,PASSWORD);
-            System.out.println("Connection Successfully.");
-        }catch(SQLException e) {
-            //数据库连接失败异常处理
-            e.printStackTrace();
+             conn = DriverManager.getConnection(HOST, USERNAME,PASSWORD);
         }catch (Exception e) {
             e.printStackTrace();
+//            throw RuntimeException(e);
         }
-
         return conn;
     }
     /*
     查询类sql的通用方法
      */
     public ResultSet sqlExecute(String sql){
-        // 获取数据库连接
-        if(conn == null){
-            conn = getConn();
-        }
+
         // 执行sql
         ResultSet resultSet = null;
         try{
+            // 获取数据库连接
+            if(conn == null || !conn.isValid(1)){
+                conn = getConn();
+            }
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(sql);
             conn.close();
@@ -59,12 +57,13 @@ public class SqlDB {
     执行sql的通用方法
      */
     public void dqlExecute(String sql){
-        // 获取数据库连接
-        if(conn == null){
-            conn = getConn();
-        }
+
         // 执行sql
         try{
+            // 获取数据库连接
+            if(conn == null || !conn.isValid(1)){
+                conn = getConn();
+            }
             Statement statement = conn.createStatement();
             statement.execute(sql);
             conn.close();
