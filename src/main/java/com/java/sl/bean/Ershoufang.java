@@ -1,5 +1,6 @@
 package com.java.sl.bean;
 
+import lombok.*;
 import org.assertj.core.data.MapEntry;
 
 import java.util.Map;
@@ -10,6 +11,10 @@ import java.util.Map;
  * Email: liujiezhangbupt@gmail.com
  * Description:
  */
+@Getter(value = AccessLevel.PUBLIC)
+@Setter(value = AccessLevel.PUBLIC)
+@ToString()
+@EqualsAndHashCode
 public class Ershoufang extends House {
 
     public Ershoufang() {
@@ -40,148 +45,6 @@ public class Ershoufang extends House {
     private String houseTimeLine;//房屋年限
     private String mortgageMessage;//抵押信息
     private String houseReplacement;//房本备件
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public Map getBaseInfo() {
-        return baseInfo;
-    }
-
-    public void setBaseInfo(Map baseInfo) {
-        this.baseInfo = baseInfo;
-    }
-
-    public Map getTradInfo() {
-        return tradInfo;
-    }
-
-    public void setTradInfo(Map tradInfo) {
-        this.tradInfo = tradInfo;
-    }
-    public String getHouseStructure() {
-        return houseStructure;
-    }
-
-    public void setHouseStructure(String houseStructure) {
-        this.houseStructure = houseStructure;
-    }
-
-    public String getInArea() {
-        return inArea;
-    }
-
-    public void setInArea(String inArea) {
-        this.inArea = inArea;
-    }
-
-    public String getBuildingType() {
-        return buildingType;
-    }
-
-    public void setBuildingType(String buildingType) {
-        this.buildingType = buildingType;
-    }
-
-    public String getBuildingStructure() {
-        return buildingStructure;
-    }
-
-    public void setBuildingStructure(String buildingStructure) {
-        this.buildingStructure = buildingStructure;
-    }
-
-    public String getLadderHouseHoldProportion() {
-        return ladderHouseHoldProportion;
-    }
-
-    public void setLadderHouseHoldProportion(String ladderHouseHoldProportion) {
-        this.ladderHouseHoldProportion = ladderHouseHoldProportion;
-    }
-
-    public String getLadderOrNot() {
-        return ladderOrNot;
-    }
-
-    public void setLadderOrNot(String ladderOrNot) {
-        this.ladderOrNot = ladderOrNot;
-    }
-
-    public String getPropertyRight() {
-        return propertyRight;
-    }
-
-    public void setPropertyRight(String propertyRight) {
-        this.propertyRight = propertyRight;
-    }
-
-    public String getForTheTime() {
-        return forTheTime;
-    }
-
-    public void setForTheTime(String forTheTime) {
-        this.forTheTime = forTheTime;
-    }
-
-    public String getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(String transaction) {
-        this.transaction = transaction;
-    }
-
-    public String getLastTranTime() {
-        return lastTranTime;
-    }
-
-    public void setLastTranTime(String lastTranTime) {
-        this.lastTranTime = lastTranTime;
-    }
-
-    public String getHouseUse() {
-        return houseUse;
-    }
-
-    public void setHouseUse(String houseUse) {
-        this.houseUse = houseUse;
-    }
-
-    public String getHouseTimeLine() {
-        return houseTimeLine;
-    }
-
-    public void setHouseTimeLine(String houseTimeLine) {
-        this.houseTimeLine = houseTimeLine;
-    }
-
-    public String getMortgageMessage() {
-        return mortgageMessage;
-    }
-
-    public void setMortgageMessage(String mortgageMessage) {
-        this.mortgageMessage = mortgageMessage;
-    }
-
-    public String getHouseReplacement() {
-        return houseReplacement;
-    }
-
-    public void setHouseReplacement(String houseReplacement) {
-        this.houseReplacement = houseReplacement;
-    }
 
     public void freshInfo(){
 
@@ -216,31 +79,5 @@ public class Ershoufang extends House {
             mortgageMessage = (String) tradInfo.get("抵押信息");
         if(tradInfo.containsKey("房本备件"))
             houseReplacement = (String) tradInfo.get("房本备件");
-
-
-    }
-
-    @Override
-    public String toString() {
-        return "Ershoufang{" +
-                "room='" + room + '\'' +
-                ", year='" + year + '\'' +
-                ", baseInfo=" + baseInfo +
-                ", houseStructure='" + houseStructure + '\'' +
-                ", inArea='" + inArea + '\'' +
-                ", buildingType='" + buildingType + '\'' +
-                ", buildingStructure='" + buildingStructure + '\'' +
-                ", ladderHouseHoldProportion='" + ladderHouseHoldProportion + '\'' +
-                ", ladderOrNot='" + ladderOrNot + '\'' +
-                ", propertyRight='" + propertyRight + '\'' +
-                ", tradInfo=" + tradInfo +
-                ", forTheTime='" + forTheTime + '\'' +
-                ", transaction='" + transaction + '\'' +
-                ", lastTranTime='" + lastTranTime + '\'' +
-                ", houseUse='" + houseUse + '\'' +
-                ", houseTimeLine='" + houseTimeLine + '\'' +
-                ", mortgageMessage='" + mortgageMessage + '\'' +
-                ", houseReplacement='" + houseReplacement + '\'' +
-                '}';
     }
 }
