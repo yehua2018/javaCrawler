@@ -33,7 +33,7 @@ public class LianjiaProcessor implements PageProcessor{
     public void process(Page page){
         // 解析列表页
         if(!page.getUrl().regex("lianjia.com/"+ houseType + "/\\d+.html").match()){
-            List<String> urls = page.getHtml().xpath("//*[@id=\"leftContent\"]/ul").links()
+            List<String> urls = page.getHtml().xpath("//*[@id=\"content\"]/div[1]/ul/li[1]/a").links()
                     .regex("https://bj.lianjia.com/"+ houseType + "/\\d+.html").all();
             urls = removeDuplcate(urls);  // 去重
             page.addTargetRequests(urls);
@@ -50,11 +50,9 @@ public class LianjiaProcessor implements PageProcessor{
         else if(!historyUrls.contains(page.getUrl())){
             size ++;
             historyUrls.add(page.getUrl());
-
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
             ershoufangdao.add(houseData, "ershoufang"); // 保存到数据库
-//            System.exit(1);
 
         }
     }

@@ -6,11 +6,11 @@ public class SqlDB {
     //数据库用户名
     private static final String USERNAME = "root";
     //数据库密码
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "qwert123";
     //驱动信息
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     //数据库地址
-    private static final String HOST = "jdbc:mysql://localhost:3306/testDB?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+    private static final String HOST = "jdbc:mysql://localhost:3306/java?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
     private Connection conn=null;
     //private PreparedStatement pstmt;
     public SqlDB() {
@@ -39,7 +39,7 @@ public class SqlDB {
         ResultSet resultSet = null;
         try{
             // 获取数据库连接
-            if(conn == null || !conn.isValid(1)){
+            if(conn == null || conn.isClosed()){
                 conn = getConn();
             }
             Statement statement = conn.createStatement();
@@ -61,7 +61,7 @@ public class SqlDB {
         // 执行sql
         try{
             // 获取数据库连接
-            if(conn == null || !conn.isValid(1)){
+            if(conn == null || conn.isClosed()){
                 conn = getConn();
             }
             Statement statement = conn.createStatement();
