@@ -41,7 +41,7 @@ public class ErshoufangDao {
 
         List<Field> fieldList = new ArrayList<Field>();
         Class tmpClass = Ershoufang.class;
-        while (tmpClass !=null && !tmpClass.getName().toLowerCase().equals("java.lang.object") )
+        while (tmpClass !=null && !tmpClass.getName().equalsIgnoreCase("java.lang.object") )
         {
             fieldList.addAll(Arrays.asList(tmpClass .getDeclaredFields()));
             tmpClass = tmpClass.getSuperclass(); //得到父类,然后赋给自己
@@ -55,7 +55,7 @@ public class ErshoufangDao {
 
                 Object o = field.get(ershoufang);
                 if(!varName.equals( "baseInfo") && !varName.equals("tradInfo")){
-                    keyVals.put(varName, (String)o);
+                    keyVals.put(varName, o);
                 }
 
                 if(access) field.setAccessible(false);

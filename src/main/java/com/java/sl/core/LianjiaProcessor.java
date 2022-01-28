@@ -52,8 +52,7 @@ public class LianjiaProcessor implements PageProcessor{
             historyUrls.add(page.getUrl());
             PageParser pageParser = new PageParser();
             Ershoufang houseData = pageParser.process(page, houseType);
-            ershoufangdao.add(houseData, "ershoufang"); // 保存到数据库
-
+            ershoufangdao.add(houseData, houseType); // 保存到数据库
         }
     }
 

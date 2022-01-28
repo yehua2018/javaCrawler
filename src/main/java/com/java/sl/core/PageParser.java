@@ -19,7 +19,7 @@ public class PageParser {
 
     public Ershoufang process(Page page, String houseType){
         Ershoufang houseData = dealEr(page);
-
+        houseData.setHouseType(houseType);
         return houseData;
     }
 
@@ -31,31 +31,31 @@ public class PageParser {
         String title = page.getHtml().xpath("/html/body/div[3]/div/div/div[1]/h1/text()").get(); // 标题
         houseInfo.setTitle(title);
 
-        String price = page.getHtml().xpath("/html/body/div[5]/div[2]/div[2]/span[1]/text()").get(); // 价格 单位：万
+        String price = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div/span[1]/text()").get(); // 价格 单位：万
         houseInfo.setPrice(price);
 
-        String room = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[1]/div[1]/text()").get(); // 2室1厅
+        String room = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[1]/div[1]/text()").get(); // 2室1厅
         houseInfo.setRoom(room);
 
-        String floor = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[1]/div[2]/text()").get(); // 中楼层/共21层
+        String floor = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[1]/div[2]/text()").get(); // 中楼层/共21层
         houseInfo.setFloor(floor);
 
-        String toward = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[2]/div[1]/text()").get(); // 南 北
-        houseInfo.setTowards(toward);
+        String towards = listToString(page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[2]/div[1]/allText()").all()); // 南 北
+        houseInfo.setTowards(towards);
 
-        String fitment = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[2]/div[2]/text()").get(); // 平层/简装
+        String fitment = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[2]/div[2]/text()").get(); // 平层/简装
         houseInfo.setFitment(fitment);
 
-        String area = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[3]/div[1]/text()").get(); // 102.09平米
+        String area = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[3]/div[1]/text()").get(); // 102.09平米
         houseInfo.setArea(area);
 
-        String year = page.getHtml().xpath("/html/body/div[5]/div[2]/div[3]/div[3]/div[2]/text()").get(); // 2007年建/板塔结合
+        String year = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[3]/div[2]/text()").get(); // 2007年建/板塔结合
         houseInfo.setYear(year);
 
-        String community = page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[1]/a[1]/text()").get(); //三环新城6号院
+        String community = page.getHtml().xpath("/html/body/div[5]/div[2]/div[5]/div[1]/a[1]/text()").get(); //三环新城6号院
         houseInfo.setCommunity(community);
 
-        String location = listToString(page.getHtml().xpath("/html/body/div[5]/div[2]/div[4]/div[2]/span[2]/allText()").all());
+        String location = listToString(page.getHtml().xpath("/html/body/div[5]/div[2]/div[5]/div[2]/span[2]/allText()").all());
         houseInfo.setLocation(location);
         // 获取房屋基本属性
         Map<String, String> baseInfo = getBaseInfo(page);
@@ -72,6 +72,7 @@ public class PageParser {
 
     protected Map<String, String> getBaseInfo(Page page){
         Map<String, String> baseInfo = new HashMap<String, String>();
+
         List<String> tags = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/span/text()").all();
         List<String> vals = page.getHtml().xpath("//*[@id=\"introduction\"]/div/div/div[1]/div[2]/ul/li/text()").all();
         for(int i=0;i<tags.size();++i){

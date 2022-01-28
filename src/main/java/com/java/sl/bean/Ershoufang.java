@@ -33,7 +33,7 @@ public class Ershoufang extends House {
     private String buildingStructure;//建筑结构
     private String ladderHouseHoldProportion;//梯户比例
     private String ladderOrNot;//是否有电梯
-    private String propertyRight;//产权年限
+//    private String propertyRight;//产权年限
 
     // 房源交易信息
     private Map tradInfo;
@@ -59,10 +59,10 @@ public class Ershoufang extends House {
             buildingStructure = (String) baseInfo.get("建筑结构");
         if(baseInfo.containsKey("梯户比例"))
             ladderHouseHoldProportion = (String) baseInfo.get("梯户比例");
-        if(baseInfo.containsKey("是否有电梯"))
-            ladderOrNot = (String) baseInfo.get("是否有电梯");
-        if(baseInfo.containsKey("产权年限"))
-            propertyRight = (String) baseInfo.get("产权年限");
+        if(baseInfo.containsKey("配备电梯"))
+            ladderOrNot = (String) baseInfo.get("配备电梯");
+//        if(baseInfo.containsKey("产权年限"))
+//            propertyRight = (String) baseInfo.get("产权年限");
 
         // 房屋交易信息
         if(tradInfo.containsKey("挂牌时间"))
